@@ -1,0 +1,14 @@
+[Unit]
+Description=Dash Gong
+
+[Service]
+ExecStart=/var/www/dash-gong/index.js
+Restart=always
+User=nobody
+Group=nobody
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/var/www/dash-gong
+
+[Install]
+WantedBy=multi-user.target
