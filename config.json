@@ -1,22 +1,9 @@
 {
 	"buttons": [
 		{
-			"name": "bogart-middle-door",
-			"id": "00:ee:bd:c0:5a:41",
-			"action": "gong",
-			"slack": {
-				"webhook": "https://hooks.slack.com/services/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",
-				"message": "",
-				// "customize": {
-				// 	"channel": "#cons-49-bogart",
-				// 	"username": "dash-doorbell"	
-				// }
-			}
-		},
-		{
 			"name": "sample_button_name",
 			"id": "da:sh:bu:tt:on:id",
-			"action": "samp_action",
+			"action": "samp_action", //see index.js
 			"slack": {
 				"webhook": "url_here",
 				"message": "customize msg here",
@@ -26,6 +13,32 @@
 					"icon_url": "img_url_here",
 				}
 			}
-		}
+		},
+		{
+			"name": "bogart-middle-door",
+			"id": "00:ee:bd:c0:5a:41",
+			"action": "gong",
+			"slack": {
+				"webhook": "https://hooks.slack.com/services/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",
+				"message": "<!here> :hodor: Someone is at the middle door! :hodor:",
+				// "customize": {
+				// 	"channel": "#cons-49-bogart",
+				// 	"username": "dash-doorbell"	
+				// }
+			}
+		},
+		// {
+		// 	"name": "bogart-upstairs-door",
+		// 	"id": "00:ee:bd:c0:5a:41",
+		// 	"action": "gong",
+		// 	"slack": {
+		// 		"webhook": "https://hooks.slack.com/services/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",
+		// 		"message": "",
+		// 		// "customize": {
+		// 		// 	"channel": "#cons-49-bogart",
+		// 		// 	"username": "dash-doorbell"	
+		// 		// }
+		// 	}
+		// },
 	]
 }
