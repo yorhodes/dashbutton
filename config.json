@@ -6,8 +6,7 @@
 			"ifn": "enp0s3",
 			"action": "gong",
 			"slack": {
-				"webhook": "https://hooks.slack.com/services/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",
-				"webhook2": "https://hooks.slack.com/services/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",
+				"webhook": "https://hooks.slack.com/services/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",
 				"message": "<!here> :hodor: Someone is at the middle door! :hodor:"
 			}
 		}
