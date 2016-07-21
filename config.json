@@ -2,15 +2,12 @@
 	"buttons": [
 		{
 			"name": "bogart-middle-door",
-			"id": "00:ee:bd:c0:5a:41",
+			"id": "74:c2:46:c0:60:c5",
+			"ifn": "enp0s3",
 			"action": "gong",
 			"slack": {
 				"webhook": "https://hooks.slack.com/services/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",
-				"message": "<!here> :hodor: Someone is at the middle door! :hodor:",
-				// "customize": {
-				// 	"channel": "#cons-49-bogart",
-				// 	"username": "dash-doorbell"	
-				// }
+				"message": "<!here> :hodor: Someone is at the middle door! :hodor:"
 			}
 		}
 	]
