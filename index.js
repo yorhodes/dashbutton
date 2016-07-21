@@ -5,9 +5,6 @@ var config = require('./config'),
 	request = require('request');
 
 config.buttons.forEach(function(button){
-	if (button.name == "sample_button_name")
-		continue;
-
 	let dash = dash_button(button.id);
 	dash.on("detected", function () {
 		doAction[button.action](button);
@@ -16,9 +13,9 @@ config.buttons.forEach(function(button){
 
 var doAction = {
 	gong: function(button){
-		let slack = button.slack;
+		var slack = button.slack;
 		
-		let body = {
+		var body = {
 			text: slack.message
 		};
 		if (slack_obj.customize) {
@@ -26,7 +23,7 @@ var doAction = {
 			body['channel'] = slack.customize.channel;
 		}
 
-		let options = {
+		var options = {
 			url: slack_obj.webhook,
 			json: body
 		};

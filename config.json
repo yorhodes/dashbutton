@@ -1,20 +1,6 @@
 {
 	"buttons": [
 		{
-			"name": "sample_button_name",
-			"id": "da:sh:bu:tt:on:id",
-			"action": "samp_action", //see index.js
-			"slack": {
-				"webhook": "url_here",
-				"message": "customize msg here",
-				"customize": { //comment out or omit to ignore
-					"channel": "#channel_name",
-					"username": "custom_name",
-					"icon_url": "img_url_here",
-				}
-			}
-		},
-		{
 			"name": "bogart-middle-door",
 			"id": "00:ee:bd:c0:5a:41",
 			"action": "gong",
@@ -26,19 +12,6 @@
 				// 	"username": "dash-doorbell"	
 				// }
 			}
-		},
-		// {
-		// 	"name": "bogart-upstairs-door",
-		// 	"id": "00:ee:bd:c0:5a:41",
-		// 	"action": "gong",
-		// 	"slack": {
-		// 		"webhook": "https://hooks.slack.com/services/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",
-		// 		"message": "",
-		// 		// "customize": {
-		// 		// 	"channel": "#cons-49-bogart",
-		// 		// 	"username": "dash-doorbell"	
-		// 		// }
-		// 	}
-		// },
+		}
 	]
 }
