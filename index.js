@@ -5,14 +5,17 @@ console.log("-=Starting node server=-");
 console.log("fetching requirements...");
 var config = require('./config.json'),
 	dash_button = require('node-dash-button'),
+	_ = require('lodash'),
 	request = require('request');
 
 config.buttons.forEach(function(button){
 	var dash = dash_button(button.id, button.ifn);
-	dash.on("detected", function () {
-		console.log("press detected ", buttonInfo(button));
-		doAction[button.action](button);	
-	});
+	dash.on("detected", 
+		_.debounce(function () {
+			console.log("press detected ", buttonInfo(button));
+			doAction[button.action](button);	
+		}, 10000, true)
+	);
 	console.log("button created ", buttonInfo(button));
 });
 
@@ -42,9 +45,9 @@ var doAction = {
 	},
 	post: function(options){
 		console.log("POST action triggered with", JSON.stringify(options));
-		/*request.post(options, function(err, res){
+		request.post(options, function(err, res){
 			console.log(err, res);
-		});*/  
+		});  
 	},
 	get: function(url){
 		console.log("GET action triggered @", url);
