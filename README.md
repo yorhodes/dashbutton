@@ -14,7 +14,7 @@ npm install
 	"buttons": []
 }
 ```
-sample button:
+Sample button object:
 ```
 {
 	"name": "sample_button_name",
@@ -26,7 +26,7 @@ sample button:
 	  	"customize": {
   			"channel": "#channel_name",
   			"username": "custom_name",
-    			"icon_url": "img_url_here",
+    			"icon_url": "img_url_here"
 		}
   	}
 }
