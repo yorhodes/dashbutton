@@ -7,7 +7,7 @@
 			"slack": {
 				"webhook": "url_here",
 				"message": "customize msg here",
-				"customize": { //comment out or omit to ignore
+				"customize": { //omit to ignore
 					"channel": "#channel_name",
 					"username": "custom_name",
 					"icon_url": "img_url_here",

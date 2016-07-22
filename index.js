@@ -5,16 +5,18 @@ console.log("-=Starting node server=-");
 console.log("fetching requirements...");
 var config = require('./config.json'),
 	dash_button = require('node-dash-button'),
-	_ = require('lodash'),
+	//_ = require('lodash'),
 	request = require('request');
 
 config.buttons.forEach(function(button){
-	var dash = dash_button(button.id, button.ifn);
+	var dash = dash_button(button.id, button.ifn, 60000);
 	dash.on("detected", 
-		_.debounce(function () {
+		//_.debounce(
+		function () {
 			console.log("press detected ", buttonInfo(button));
 			doAction[button.action](button);	
-		}, 10000, true)
+		}
+		//, 50000, true)
 	);
 	console.log("button created ", buttonInfo(button));
 });
@@ -25,7 +27,7 @@ function buttonInfo(button) {
 
 var doAction = {
 	gong: function(button){
-		console.log("GONG action triggered ", buttonInfo(button));
+		logAction("GONG", buttonInfo(button));
 		var slack = button.slack;
 		
 		var body = {
@@ -34,6 +36,7 @@ var doAction = {
 		if ('customize' in slack) {
 			body['username'] = slack.customize.username;
 			body['channel'] = slack.customize.channel;
+			body['attachments'] = slack.customize.attachments;
 		}
 
 		var options = {
@@ -44,15 +47,19 @@ var doAction = {
 		doAction["post"](options);
 	},
 	post: function(options){
-		console.log("POST action triggered with", JSON.stringify(options));
+		logAction("POST", JSON.stringify(options));
 		request.post(options, function(err, res){
-			console.log(err, res);
+			//console.log(err, res);
 		});  
 	},
 	get: function(url){
-		console.log("GET action triggered @", url);
+		logAction("GET", url);
 		request.get(url, function(er, response){
-			console.log(er, response);
+			//console.log(er, response);
 		});
 	}
 };
+
+function logAction(type, src) {
+	console.log("\n", type, "action triggered by", src, "\n@", Date.now()/1000);
+}
