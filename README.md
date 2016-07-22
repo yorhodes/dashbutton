@@ -5,6 +5,7 @@
 npm install <github ssh/https link>
 cd dashbutton
 npm install
+npm start
 ```
 
 ## Configuration
