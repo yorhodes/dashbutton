@@ -8,6 +8,7 @@ npm install
 ```
 
 ## Configuration
+See [sample_config.json](https://github.com/yorhodes/dashbutton/blob/master/sample_config.json) for example formatting.
 ### Buttons
 `config.json` should be populated with a buttons array
 ```
