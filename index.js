@@ -5,25 +5,7 @@ console.log("-=Starting node server=-");
 console.log("fetching requirements...");
 var config = require('./config.json'),
 	dash_button = require('node-dash-button'),
-	//_ = require('lodash'),
 	request = require('request');
-
-config.buttons.forEach(function(button){
-	var dash = dash_button(button.id, button.ifn, 60000);
-	dash.on("detected", 
-		//_.debounce(
-		function () {
-			console.log("press detected ", buttonInfo(button));
-			doAction[button.action](button);	
-		}
-		//, 50000, true)
-	);
-	console.log("button created ", buttonInfo(button));
-});
-
-function buttonInfo(button) {
-	return "id:" + button.id + ", name: " + button.name + ", network: " + button.ifn;
-}
 
 var doAction = {
 	gong: function(button){
@@ -59,6 +41,32 @@ var doAction = {
 		});
 	}
 };
+
+config.buttons.forEach(function(button){
+	var dash = dash_button(button.id, button.ifn);
+	console.log("button created @", buttonInfo(button));	
+	button.timeout = false;
+	dash.on("detected", function() { press(button); });
+	//press(button);
+});
+
+
+function press(button) {
+	console.log("press detected @", buttonInfo(button));
+	if (button.timeout == false) {			
+		button.timeout = true;
+		console.log("-timeout started-");
+		setTimeout(function() { 
+			button.timeout = false;
+			console.log("-timeout over-"); 
+		}, 60000); //one minute timeout		
+		doAction[button.action](button);								
+	}
+}
+
+function buttonInfo(button) {
+	return "id:" + button.id + ", name: " + button.name + ", network: " + button.ifn;
+}
 
 function logAction(type, src) {
 	console.log("\n", type, "action triggered by", src, "\n@", Date.now()/1000);
