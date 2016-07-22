@@ -8,6 +8,7 @@ npm install
 ```
 
 ## Configuration
+### Buttons
 `config.json` should be populated with a buttons array
 ```
 {
@@ -30,4 +31,21 @@ Sample button object:
 		}
   	}
 }
+```
+#### ID
+The id key value is the MAC address of the amazon dash button. This can be found by using [Wireshark](https://www.wireshark.org/) to monitor ARP traffic on the network when the button is pressed, or using node-dash-button's [`bin/findButton`](https://github.com/hortinstein/node-dash-button) function.
+
+#### Actions
+See the index.js `doAction` structure to see available actions, and add new ones
+```
+"action": "gong"
+```
+#### Slack customize
+The slack customize object can be ommitted to use the defaults configured on the slack webhook
+```
+"customize": {
+  			"channel": "#channel_name",
+  			"username": "custom_name",
+    			"icon_url": "img_url_here"
+		}
 ```
