@@ -2,7 +2,7 @@
 
 ## Setup & Installation
 ```
-npm install <github ssh/https link>
+npm install https://github.com/yorhodes/dashbutton
 cd dashbutton
 npm install
 npm start
