@@ -5,7 +5,7 @@
 npm install https://github.com/yorhodes/dashbutton
 cd dashbutton
 npm install
-npm start
+node index.js
 ```
 
 ## Configuration
