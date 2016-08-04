@@ -2,7 +2,7 @@
 
 ## Setup & Installation
 ```
-npm install https://github.com/yorhodes/dashbutton
+npm install git+https://git@github.com/yorhodes/dashbutton
 cd dashbutton
 npm install
 node index.js
