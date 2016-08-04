@@ -2,6 +2,8 @@
 
 ## Setup & Installation
 ```
+sudo apt-get install libpcap-dev
+sudo apt-get install nodejs-legacy
 npm install git+https://git@github.com/yorhodes/dashbutton
 cd dashbutton
 npm install
